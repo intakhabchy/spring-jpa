@@ -10,4 +10,10 @@ import java.util.List;
 public interface StudentRepository extends JpaRepository<Student, Long> {
 
     public List<Student> findByFirstName(String firstName);
+
+    public List<Student> findByFirstNameContaining(String firstName);
+
+    public List<Student> findByLastNameNotNull();
+
+    public List<Student> findByGuardianName(String name);
 }
