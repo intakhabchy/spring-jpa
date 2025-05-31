@@ -101,7 +101,8 @@ class StudentRepositoryTest {
 
     @Test
     public void updateFirstNameByEmailId(){
-        studentRepository.updateStudentNameByEmailId("New First Name", "test2@email.com");
+        studentRepository.updateStudentNameByEmailId("New First Name" +
+                "", "test2@email.com");
     }
 
 }
