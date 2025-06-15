@@ -32,7 +32,7 @@ class TeacherRepositoryTest {
         Teacher teacher = Teacher.builder()
                 .firstName("T_f_name")
                 .lastName("T_l_name")
-                .courses(List.of(courseOOP,courseDBA))
+        //        .courses(List.of(courseOOP,courseDBA))
                 .build();
 
         teacherRepository.save(teacher);
