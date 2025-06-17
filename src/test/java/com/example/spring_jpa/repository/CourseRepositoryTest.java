@@ -1,6 +1,7 @@
 package com.example.spring_jpa.repository;
 
 import com.example.spring_jpa.entity.Course;
+import com.example.spring_jpa.entity.Student;
 import com.example.spring_jpa.entity.Teacher;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -77,5 +78,33 @@ class CourseRepositoryTest {
         List<Course> courses = courseRepository.findByTitleContaining("D",firstTenRecords).getContent();
 
         System.out.println("courses: "+courses);
+    }
+
+    @Test
+    public void saveCourseWithStudentAndTeacher(){
+
+        Teacher teacher = Teacher
+                .builder()
+                .firstName("ai_f_name")
+                .lastName("ai_l_name")
+                .build();
+
+        Student student = Student
+                .builder()
+                .firstName("AI_f_name")
+                .lastName("AI_l_name")
+                .emailId("ai@email.com")
+                .build();
+
+        Course course = Course
+                .builder()
+                .title("AI")
+                .credit(4)
+                .teacher(teacher)
+                .build();
+
+        course.addStudent(student);
+
+        courseRepository.save(course);
     }
 }
